@@ -255,6 +255,9 @@ class WC_Klarna_Order_Management_Request {
 		isset( $kss_tracking_id ) ? $kss_shipment_data['tracking_number']                              = $kss_tracking_id : '';
 		isset( $kss_tracking_url ) ? $kss_shipment_data['tracking_uri']                                = $kss_tracking_url : '';
 
+		if ( 'Postal' === $kss_shipment_data['shipping_method'] ) {
+			$kss_shipment_data['shipping_method'] = 'Own';
+		}
 		return $kss_shipment_data;
 	}
 
